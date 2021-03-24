@@ -2,6 +2,26 @@
 
 {% block content %}
 
-<h1> Hello World </h1>
+
+
+
+
+
+{% if api %}
+	{% if api == "error..." %}
+		Sorry the site is down...
+	{% else %}
+	<div class="jumbotron {{ category_color }}">
+  		<h1 class="display-4">{{ api.0.Category.Name }}</h1>
+  		<p class="lead">Date: {{ api.0.DateObserved }}</br> Area: {{ api.0.ReportingArea }}</br>
+		Air Quality: {{ api.0.AQI }}</br></p>
+	  	<p> {{ category_description }} </p></br>
+
+  	</div>
+
+	{% endif %}
+{% endif %}
+
+
 
 {% endblock %}
